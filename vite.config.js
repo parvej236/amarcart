@@ -7,7 +7,6 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/your-subdirectory/', // Replace with your actual deployment path
   plugins: [
     vue(),
     tailwindcss(),
