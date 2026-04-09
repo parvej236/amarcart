@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-[#020617] text-slate-50 selection:bg-cyan-500 selection:text-white font-sans">
+  <div class="min-h-screen bg-[#020617] text-slate-50 selection:bg-cyan-500 selection:text-white font-sans pb-28 pt-20">
 
     <nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
       <div class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -15,6 +15,14 @@
     </nav>
 
     <router-view />
+
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-950/95 backdrop-blur-md border-t border-white/10">
+      <div class="container mx-auto px-4 py-3 flex items-center justify-center gap-2 text-sm font-medium text-slate-300">
+        <router-link to="/" class="px-3 py-2 rounded-full bg-slate-900/80 hover:bg-slate-800 transition-colors">Home</router-link>
+        <router-link to="/products" class="px-3 py-2 rounded-full bg-slate-900/80 hover:bg-slate-800 transition-colors">Products</router-link>
+        <router-link to="/contact" class="px-3 py-2 rounded-full bg-slate-900/80 hover:bg-slate-800 transition-colors">Support</router-link>
+      </div>
+    </nav>
 
   </div>
 </template>
