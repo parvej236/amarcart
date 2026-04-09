@@ -1,29 +1,26 @@
 <template>
   <div class="min-h-screen bg-[#020617] text-slate-50 selection:bg-cyan-500 selection:text-white font-sans">
-    
+
     <nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
       <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div class="text-2xl font-black tracking-tighter text-white">
+        <router-link to="/" class="text-2xl font-black tracking-tighter text-white">
           DIGITAL<span class="text-cyan-500">WORLD</span>
-        </div>
+        </router-link>
         <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
-          <a href="#" class="hover:text-cyan-400 transition-colors">Home</a>
-          <a href="#products" class="hover:text-cyan-400 transition-colors">Products</a>
-          <a href="#contact" class="hover:text-cyan-400 transition-colors">Support</a>
+          <router-link to="/" class="hover:text-cyan-400 transition-colors">Home</router-link>
+          <router-link to="/products" class="hover:text-cyan-400 transition-colors">Products</router-link>
+          <router-link to="/contact" class="hover:text-cyan-400 transition-colors">Support</router-link>
         </div>
       </div>
     </nav>
 
-    <router-view v-if="$route" />
-    <HomeView v-else /> 
+    <router-view />
 
-    </div>
+  </div>
 </template>
 
 <script setup>
-// If you are using Vue Router, keep <router-view />
-// If you are making a single-page landing, you can import HomeView directly
-import HomeView from './views/HomeView.vue';
+// Vue Router is now properly configured
 </script>
 
 <style>
