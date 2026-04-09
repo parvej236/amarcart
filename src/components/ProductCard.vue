@@ -32,9 +32,9 @@
 
           <button 
             @click="buyOnDiscord"
-            class="relative w-full sm:w-auto inline-flex items-center justify-center p-0.5 overflow-hidden text-xs md:text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 hover:text-white focus:ring-2 focus:outline-none focus:ring-cyan-800"
+            class="relative w-full sm:w-auto inline-flex items-center justify-center p-0.5 overflow-hidden text-xs md:text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 hover:text-white focus:ring-2 focus:outline-none focus:ring-cyan-800 transition-all duration-300 active:scale-95"
           >
-            <span class="relative w-full px-2 py-1.5 md:px-3 md:py-2 transition-all ease-in duration-75 bg-slate-900 rounded-md group-hover:bg-opacity-0">
+            <span class="relative w-full px-4 py-1.5 md:px-5 md:py-2 transition-all ease-in duration-75 bg-slate-900 rounded-md group-hover:bg-opacity-0">
               Buy Now
             </span>
           </button>
@@ -48,13 +48,22 @@
 const props = defineProps(['product']);
 
 const buyOnDiscord = () => {
-  const discordLink = "https://discord.gg/your-link"; 
-  const message = `I want to buy: ${props.product.name} (${props.product.price} BDT)`;
-  window.open(`${discordLink}?message=${encodeURIComponent(message)}`, '_blank');
+  const discordInvite = "https://discord.gg/9ABp3AycC";
+  const message = `Hello! I would like to purchase: ${props.product.name} for ${props.product.price} BDT.`;
+
+  // Copy order info to clipboard so the user can easily paste it in Discord
+  navigator.clipboard.writeText(message).then(() => {
+    alert("Order details copied to clipboard! Paste it in the Discord server.");
+    window.open(discordInvite, '_blank');
+  }).catch(() => {
+    // Fallback if clipboard fails
+    window.open(discordInvite, '_blank');
+  });
 };
 </script>
 
 <style scoped>
+/* Tailwind handles most of this, but keeping your logic for line-clamping */
 .line-clamp-1 {
   display: -webkit-box;
   -webkit-line-clamp: 1;

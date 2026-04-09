@@ -28,7 +28,7 @@
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <a href="#" class="group relative flex flex-col items-center p-8 rounded-3xl bg-slate-800/40 border border-transparent hover:border-[#5865F2]/50 transition-all duration-500">
+            <a href="https://discord.gg/9ABp3AycC" target="_blank" class="group relative flex flex-col items-center p-8 rounded-3xl bg-slate-800/40 border border-transparent hover:border-[#5865F2]/50 transition-all duration-500">
               <div class="w-16 h-16 flex items-center justify-center mb-4 transition-transform duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(88,101,242,0.4)]">
                 <svg class="w-12 h-12" viewBox="0 0 127.14 96.36" xmlns="http://www.w3.org/2000/svg">
                   <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.06,72.06,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.71,32.65-1.78,56.63.51,80.21a105.73,105.73,0,0,0,32.29,16.15,77.7,77.7,0,0,0,7.37-12,67.65,67.65,0,0,1-11.9-5.69c.91-.66,1.8-1.34,2.66-2a75.6,75.6,0,0,0,65.23,0c.87.71,1.76,1.39,2.66,2a67.88,67.88,0,0,1-11.9,5.69,77,77,0,0,0,7.37,12,105.27,105.27,0,0,0,32.33-16.14C130.49,52.25,119.82,28.53,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5.07-12.73,11.41-12.73S54,46,53.89,53,48.81,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5.07-12.73,11.44-12.73S96.23,46,96.12,53,91.06,65.69,84.69,65.69Z" fill="#5865F2"/>
