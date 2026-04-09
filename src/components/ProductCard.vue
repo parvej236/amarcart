@@ -1,6 +1,6 @@
 <template>
   <div class="relative group h-full">
-    <div class="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl blur opacity-10 group-hover:opacity-60 transition duration-500"></div>
+    <div class="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl blur opacity-10 group-hover:opacity-40 transition duration-500"></div>
     
     <div class="relative bg-slate-900/80 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden flex flex-col h-full">
       
@@ -8,9 +8,19 @@
         <img :src="product.image" :alt="product.name" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
         
-        <span class="absolute top-2 right-2 bg-cyan-500/20 backdrop-blur-md border border-cyan-500/50 text-cyan-400 text-[8px] md:text-[10px] uppercase font-bold px-2 py-1 rounded-md">
-          Premium
-        </span>
+        <div class="absolute top-2 left-2 right-2 flex justify-between items-start">
+          <span class="bg-cyan-500/20 backdrop-blur-md border border-cyan-500/50 text-cyan-400 text-[8px] md:text-[10px] uppercase font-bold px-2 py-1 rounded-md">
+            Premium
+          </span>
+          
+          <button 
+            @click.stop="shareProduct"
+            class="p-2 bg-slate-800/80 hover:bg-cyan-500/20 border border-white/10 hover:border-cyan-500/50 rounded-full transition-all duration-300 text-slate-300 hover:text-cyan-400"
+            title="Share Product"
+          >
+            <Share2Icon class="w-3.5 h-3.5 md:w-4 md:h-4" />
+          </button>
+        </div>
       </div>
 
       <div class="p-3 md:p-4 flex flex-col flex-grow">
@@ -45,35 +55,41 @@
 </template>
 
 <script setup>
+import { Share2Icon } from 'lucide-vue-next';
+
 const props = defineProps(['product']);
+
+// Share Logic
+const shareProduct = async () => {
+  const shareData = {
+    title: `Digital World - ${props.product.name}`,
+    text: `Check out ${props.product.name} for only ${props.product.price} BDT on Digital World!`,
+    url: window.location.href // Or a specific product route link if you have one
+  };
+
+  try {
+    if (navigator.share) {
+      // Mobile native share
+      await navigator.share(shareData);
+    } else {
+      // Desktop fallback (Copy to clipboard)
+      await navigator.clipboard.writeText(`${shareData.text} ${shareData.url}`);
+      alert('Link copied to clipboard!');
+    }
+  } catch (err) {
+    console.error('Error sharing:', err);
+  }
+};
 
 const buyOnDiscord = () => {
   const discordInvite = "https://discord.gg/9ABp3AycC";
   const message = `Hello! I would like to purchase: ${props.product.name} for ${props.product.price} BDT.`;
 
-  // Copy order info to clipboard so the user can easily paste it in Discord
   navigator.clipboard.writeText(message).then(() => {
     alert("Order details copied to clipboard! Paste it in the Discord server.");
     window.open(discordInvite, '_blank');
   }).catch(() => {
-    // Fallback if clipboard fails
     window.open(discordInvite, '_blank');
   });
 };
 </script>
-
-<style scoped>
-/* Tailwind handles most of this, but keeping your logic for line-clamping */
-.line-clamp-1 {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-</style>
