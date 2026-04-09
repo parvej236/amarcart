@@ -8,19 +8,32 @@
         </router-link>
         <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
           <router-link to="/" class="hover:text-cyan-400 transition-colors">Home</router-link>
-          <router-link to="/products" class="hover:text-cyan-400 transition-colors">Products</router-link>
-          <router-link to="/contact" class="hover:text-cyan-400 transition-colors">Support</router-link>
+          <router-link to="/products" class="hover:text-cyan-400 transition-colors">Shop</router-link>
+          <router-link to="/contact" class="hover:text-cyan-400 transition-colors">Contact</router-link>
         </div>
       </div>
     </nav>
 
     <router-view />
 
-    <nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-950/95 backdrop-blur-md border-t border-white/10">
-      <div class="container mx-auto px-4 py-3 flex items-center justify-center gap-2 text-sm font-medium text-slate-300">
-        <router-link to="/" class="px-3 py-2 rounded-full bg-slate-900/80 hover:bg-slate-800 transition-colors">Home</router-link>
-        <router-link to="/products" class="px-3 py-2 rounded-full bg-slate-900/80 hover:bg-slate-800 transition-colors">Products</router-link>
-        <router-link to="/contact" class="px-3 py-2 rounded-full bg-slate-900/80 hover:bg-slate-800 transition-colors">Support</router-link>
+    <nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-md z-50">
+      <div class="bg-slate-900/90 backdrop-blur-xl border border-white/10 rounded-3xl px-8 py-3 flex items-center justify-between shadow-2xl shadow-cyan-900/20">
+        
+        <router-link to="/" class="flex flex-col items-center gap-1 group transition-all duration-300" active-class="active-link">
+          <HomeIcon class="w-6 h-6 text-slate-400 group-[.active-link]:text-cyan-400 group-[.active-link]:scale-110 transition-transform" />
+          <span class="text-[10px] font-semibold text-slate-500 group-[.active-link]:text-cyan-400 uppercase tracking-widest">Home</span>
+        </router-link>
+
+        <router-link to="/products" class="flex flex-col items-center gap-1 group transition-all duration-300" active-class="active-link">
+          <ShoppingBagIcon class="w-6 h-6 text-slate-400 group-[.active-link]:text-cyan-400 group-[.active-link]:scale-110 transition-transform" />
+          <span class="text-[10px] font-semibold text-slate-500 group-[.active-link]:text-cyan-400 uppercase tracking-widest">Shop</span>
+        </router-link>
+
+        <router-link to="/contact" class="flex flex-col items-center gap-1 group transition-all duration-300" active-class="active-link">
+          <MailIcon class="w-6 h-6 text-slate-400 group-[.active-link]:text-cyan-400 group-[.active-link]:scale-110 transition-transform" />
+          <span class="text-[10px] font-semibold text-slate-500 group-[.active-link]:text-cyan-400 uppercase tracking-widest">Contact</span>
+        </router-link>
+
       </div>
     </nav>
 
@@ -28,16 +41,15 @@
 </template>
 
 <script setup>
-// Vue Router is now properly configured
+import { HomeIcon, ShoppingBagIcon, MailIcon } from 'lucide-vue-next';
 </script>
 
 <style>
-/* Smooth scrolling for the whole page */
+/* Keeping only standard CSS here to avoid Tailwind v4 build errors */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom modern scrollbar for Dark Mode */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -53,16 +65,5 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #334155;
-}
-
-/* Base transitions for page elements */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
 }
 </style>
