@@ -14,9 +14,9 @@
         </div>
 
         <h1 class="text-5xl sm:text-7xl md:text-9xl font-black text-white tracking-tighter mb-6 leading-[0.85] select-none">
-          DIGITAL<br />
+          Digital<br />
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600">
-            WORLD
+            PRoduct
           </span>
         </h1>
 
